@@ -1,5 +1,7 @@
 const POSTS_URL = "posts.json";
 
+const CATEGORY_ORDER = ["MUSIC", "ART", "GRAFFITI", "FILM", "SKATE", "EVENTS"];
+
 async function getPosts() {
   const res = await fetch(POSTS_URL);
   if (!res.ok) throw new Error("posts.json could not be loaded.");
@@ -28,28 +30,83 @@ function escapeHtml(str = "") {
     .replace(/'/g, "&#039;");
 }
 
+function getPrimaryCategory(post) {
+  return (post.categories && post.categories[0]) ? post.categories[0] : "MUSIC";
+}
+
+function getCategoryClass(category = "") {
+  return category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
+
+function getVisualPatternClass(category = "") {
+  const map = {
+    MUSIC: "visual-wave visual-grid",
+    ART: "visual-circle visual-noise",
+    GRAFFITI: "visual-diagonal visual-noise",
+    FILM: "visual-bars visual-grid",
+    SKATE: "visual-wave visual-diagonal",
+    EVENTS: "visual-circle visual-bars"
+  };
+  return map[category] || "visual-grid visual-noise";
+}
+
+function createVisual(category, label) {
+  const safeCategory = escapeHtml(category);
+  const safeLabel = escapeHtml(label || category);
+  const patternClass = getVisualPatternClass(category);
+
+  return `
+    <div class="card-visual">
+      <div class="visual-inner ${patternClass}"></div>
+      <div class="visual-label">${safeLabel}</div>
+    </div>
+  `;
+}
+
+function createFeaturedVisual(category, label) {
+  const safeLabel = escapeHtml(label || category);
+  const patternClass = getVisualPatternClass(category);
+
+  return `
+    <div class="featured-visual">
+      <div class="visual-inner ${patternClass}"></div>
+      <div class="visual-label">${safeLabel}</div>
+    </div>
+  `;
+}
+
 function createCard(post) {
+  const primaryCategory = getPrimaryCategory(post);
+
   return `
     <a class="post-card reveal" href="article.html?id=${encodeURIComponent(post.id)}">
-      <div>
-        <div class="card-meta">${escapeHtml(categoryText(post.categories))}</div>
-        <h3 class="card-title">${escapeHtml(post.title)}</h3>
-        <p class="card-intro">${escapeHtml(post.intro)}</p>
-      </div>
-      <div class="card-bottom">
-        <span>${formatDate(post.date)}</span>
-        <span>${post.sources.length} SOURCES</span>
+      ${createVisual(primaryCategory, primaryCategory)}
+      <div class="card-main">
+        <div>
+          <div class="card-meta">${escapeHtml(categoryText(post.categories))}</div>
+          <h3 class="card-title">${escapeHtml(post.title)}</h3>
+          <p class="card-intro">${escapeHtml(post.intro)}</p>
+        </div>
+        <div class="card-bottom">
+          <span>${formatDate(post.date)}</span>
+          <span>${post.sources.length} SOURCES</span>
+        </div>
       </div>
     </a>
   `;
 }
 
 function createFeatured(post) {
+  const primaryCategory = getPrimaryCategory(post);
+
   return `
     <a class="featured-card reveal" href="article.html?id=${encodeURIComponent(post.id)}">
       <div class="featured-left">
-        <div class="featured-meta">FEATURED / ${escapeHtml(categoryText(post.categories))}</div>
-        <h2 class="featured-title">${escapeHtml(post.title)}</h2>
+        <div>
+          <div class="featured-meta">FEATURED / ${escapeHtml(categoryText(post.categories))}</div>
+          <h2 class="featured-title">${escapeHtml(post.title)}</h2>
+        </div>
+        ${createFeaturedVisual(primaryCategory, primaryCategory)}
       </div>
       <div class="featured-right">
         <p class="featured-intro">${escapeHtml(post.intro)}</p>
@@ -60,6 +117,25 @@ function createFeatured(post) {
       </div>
     </a>
   `;
+}
+
+function renderHeroCategories(posts) {
+  const el = document.getElementById("hero-categories");
+  if (!el) return;
+
+  const existing = new Set(posts.flatMap((post) => post.categories || []));
+  const ordered = CATEGORY_ORDER.filter((cat) => existing.has(cat) || CATEGORY_ORDER.includes(cat));
+
+  el.innerHTML = ordered
+    .map((cat) => {
+      const slug = getCategoryClass(cat);
+      return `
+        <a class="category-chip ${slug} reveal" href="archive.html?category=${encodeURIComponent(cat)}">
+          <span>${escapeHtml(cat)}</span>
+        </a>
+      `;
+    })
+    .join("");
 }
 
 function applyReveal() {
@@ -124,7 +200,7 @@ function createProgressBar() {
 
 function setupArchiveViewToggle(gridEl) {
   const controls = document.querySelector(".archive-controls");
-  if (!controls || !gridEl) return;
+  if (!controls || !gridEl || document.querySelector(".archive-toolbar")) return;
 
   const toolbar = document.createElement("div");
   toolbar.className = "archive-toolbar";
@@ -169,6 +245,8 @@ function renderHome(posts) {
   const gridEl = document.getElementById("post-grid");
   if (!featuredEl || !gridEl) return;
 
+  renderHeroCategories(posts);
+
   if (!posts.length) {
     featuredEl.innerHTML = "";
     gridEl.innerHTML = `<div class="empty-state reveal">No posts yet.</div>`;
@@ -191,14 +269,17 @@ function renderArchive(posts) {
   const filtersEl = document.getElementById("category-filters");
   if (!gridEl || !searchEl || !filtersEl) return;
 
+  const params = new URLSearchParams(window.location.search);
+  const initialCategory = params.get("category");
+
   const categories = ["ALL", ...new Set(posts.flatMap((post) => post.categories))];
-  let activeCategory = "ALL";
+  let activeCategory = categories.includes(initialCategory) ? initialCategory : "ALL";
   let searchValue = "";
 
   filtersEl.innerHTML = categories
     .map(
       (cat) => `
-        <button class="filter-btn ${cat === "ALL" ? "active" : ""}" data-category="${escapeHtml(cat)}">
+        <button class="filter-btn ${cat === activeCategory ? "active" : ""}" data-category="${escapeHtml(cat)}">
           ${escapeHtml(cat)}
         </button>
       `
@@ -241,6 +322,14 @@ function renderArchive(posts) {
     [...filtersEl.querySelectorAll(".filter-btn")].forEach((b) => {
       b.classList.toggle("active", b.dataset.category === activeCategory);
     });
+
+    const url = new URL(window.location.href);
+    if (activeCategory === "ALL") {
+      url.searchParams.delete("category");
+    } else {
+      url.searchParams.set("category", activeCategory);
+    }
+    window.history.replaceState({}, "", url);
 
     draw();
   });
