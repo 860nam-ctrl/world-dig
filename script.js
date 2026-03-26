@@ -1,6 +1,6 @@
 const POSTS_URL = "posts.json";
 
-const CATEGORY_ORDER = ["MUSIC", "ART", "GRAFFITI", "FILM", "SKATE", "EVENTS"];
+const CATEGORY_ORDER = ["MUSIC", "ART", "GRAFFITI", "FILM", "SKATE", "EVENTS", "SNEAKERS"];
 
 async function getPosts() {
   const res = await fetch(POSTS_URL);
@@ -45,7 +45,8 @@ function getVisualCategoryClass(category = "") {
     GRAFFITI: "visual-graffiti",
     FILM: "visual-film",
     SKATE: "visual-skate",
-    EVENTS: "visual-events"
+    EVENTS: "visual-events",
+    SNEAKERS: "visual-sneakers"
   };
   return map[category] || "visual-music";
 }
@@ -126,7 +127,7 @@ function renderHeroCategories(posts) {
   if (!el) return;
 
   const existing = new Set(posts.flatMap((post) => post.categories || []));
-  const ordered = CATEGORY_ORDER.filter((cat) => existing.has(cat) || CATEGORY_ORDER.includes(cat));
+  const ordered = CATEGORY_ORDER.filter((cat) => existing.has(cat));
 
   el.innerHTML = ordered
     .map((cat) => {
