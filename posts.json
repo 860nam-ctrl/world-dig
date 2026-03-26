@@ -1,0 +1,66 @@
+[
+  {
+    "id": "2026-03-26-street-signals",
+    "date": "2026-03-26",
+    "title": "Today’s Street Signals",
+    "categories": ["MUSIC", "ART", "GRAFFITI", "FILM", "SKATE", "EVENTS"],
+    "intro": "街・現場・体験へ寄る、今日の世界のストリートカルチャーの温度をまとめた記録。",
+    "body": [
+      "今日は、作品単体よりも都市空間や現場体験に重心が移っている日だった。音楽はネット発の熱がライブへ拡張し、アートは壁だけでなく街全体を回遊させる構成が目立つ。",
+      "グラフィティは祝祭や都市景観に接続し、スケートは競技というよりショーやコミュニティ体験として機能している。映画領域でも、主流から外れたフェスや実験性の高い場が引き続き熱を持っている。",
+      "WORLD DIG では、こうした日々の動きをニュースではなく作品アーカイブとして残していく。"
+    ],
+    "sources": [
+      {
+        "name": "Pitchfork",
+        "url": "https://pitchfork.com/"
+      },
+      {
+        "name": "HKWALLS",
+        "url": "https://hkwalls.org/"
+      },
+      {
+        "name": "Red Bull Skateboarding",
+        "url": "https://www.redbull.com/"
+      }
+    ]
+  },
+  {
+    "id": "2026-03-25-hong-kong-heat",
+    "date": "2026-03-25",
+    "title": "Hong Kong Heat / Walls, Screens, City Flow",
+    "categories": ["ART", "GRAFFITI", "EVENTS"],
+    "intro": "香港の街全体を使ったアート回遊が、今週の都市カルチャーの熱を象徴している。",
+    "body": [
+      "壁画、LEDスクリーン、展示、回遊。都市の複数レイヤーを使った表現が目立ち、ストリートアートが単なる壁の絵ではなく、街の体験設計そのものになっている。",
+      "メジャーイベントとローカルなストリートの熱が隣接している状態こそ、今の香港の面白さだ。"
+    ],
+    "sources": [
+      {
+        "name": "HKWALLS Official Site",
+        "url": "https://hkwalls.org/"
+      },
+      {
+        "name": "Art Basel Hong Kong",
+        "url": "https://www.artbasel.com/hong-kong"
+      }
+    ]
+  },
+  {
+    "id": "2026-03-24-noise-rap-expansion",
+    "date": "2026-03-24",
+    "title": "Noise Rap Expansion",
+    "categories": ["MUSIC"],
+    "intro": "オンライン発のアンダーグラウンドが、そのまま現場規模へ拡張していく動き。",
+    "body": [
+      "ネット起点で熱を持ったラップや関連シーンが、ツアーやライブ空間へ広がっている。ローカルな熱が現場で増幅される流れは、今のストリート音楽の重要な感触だ。",
+      "この動きは単なるリリース情報ではなく、カルチャーの移動経路そのものとして見るべきだ。"
+    ],
+    "sources": [
+      {
+        "name": "Pitchfork Music News",
+        "url": "https://pitchfork.com/news/"
+      }
+    ]
+  }
+]
