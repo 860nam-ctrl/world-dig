@@ -30,7 +30,7 @@ function escapeHtml(str = "") {
 
 function createCard(post) {
   return `
-    <a class="post-card" href="article.html?id=${encodeURIComponent(post.id)}">
+    <a class="post-card reveal" href="article.html?id=${encodeURIComponent(post.id)}">
       <div>
         <div class="card-meta">${escapeHtml(categoryText(post.categories))}</div>
         <h3 class="card-title">${escapeHtml(post.title)}</h3>
@@ -46,7 +46,7 @@ function createCard(post) {
 
 function createFeatured(post) {
   return `
-    <a class="featured-card" href="article.html?id=${encodeURIComponent(post.id)}">
+    <a class="featured-card reveal" href="article.html?id=${encodeURIComponent(post.id)}">
       <div class="featured-left">
         <div class="featured-meta">FEATURED / ${escapeHtml(categoryText(post.categories))}</div>
         <h2 class="featured-title">${escapeHtml(post.title)}</h2>
@@ -62,6 +62,108 @@ function createFeatured(post) {
   `;
 }
 
+function applyReveal() {
+  const targets = document.querySelectorAll(".reveal");
+  if (!targets.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  targets.forEach((target) => observer.observe(target));
+}
+
+function createBackToTop() {
+  if (document.querySelector(".back-to-top")) return;
+
+  const btn = document.createElement("button");
+  btn.className = "back-to-top";
+  btn.setAttribute("aria-label", "Back to top");
+  btn.innerHTML = "↑";
+  document.body.appendChild(btn);
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 500) {
+      btn.classList.add("show");
+    } else {
+      btn.classList.remove("show");
+    }
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+function createProgressBar() {
+  if (document.querySelector(".progress-bar")) return;
+
+  const bar = document.createElement("div");
+  bar.className = "progress-bar";
+  document.body.appendChild(bar);
+
+  const updateBar = () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = `${progress}%`;
+  };
+
+  window.addEventListener("scroll", updateBar);
+  window.addEventListener("resize", updateBar);
+  updateBar();
+}
+
+function setupArchiveViewToggle(gridEl) {
+  const controls = document.querySelector(".archive-controls");
+  if (!controls || !gridEl) return;
+
+  const toolbar = document.createElement("div");
+  toolbar.className = "archive-toolbar";
+
+  const label = document.createElement("div");
+  label.className = "card-meta";
+  label.textContent = "VIEW MODE";
+
+  const switchWrap = document.createElement("div");
+  switchWrap.className = "view-switch";
+
+  const savedView = localStorage.getItem("worlddig-view") || "grid";
+
+  switchWrap.innerHTML = `
+    <button class="view-btn ${savedView === "grid" ? "active" : ""}" data-view="grid">Grid</button>
+    <button class="view-btn ${savedView === "list" ? "active" : ""}" data-view="list">List</button>
+  `;
+
+  toolbar.appendChild(label);
+  toolbar.appendChild(switchWrap);
+  controls.appendChild(toolbar);
+
+  const applyView = (mode) => {
+    gridEl.classList.toggle("list-view", mode === "list");
+    switchWrap.querySelectorAll(".view-btn").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.view === mode);
+    });
+    localStorage.setItem("worlddig-view", mode);
+  };
+
+  switchWrap.addEventListener("click", (e) => {
+    const btn = e.target.closest(".view-btn");
+    if (!btn) return;
+    applyView(btn.dataset.view);
+  });
+
+  applyView(savedView);
+}
+
 function renderHome(posts) {
   const featuredEl = document.getElementById("featured-post");
   const gridEl = document.getElementById("post-grid");
@@ -69,7 +171,8 @@ function renderHome(posts) {
 
   if (!posts.length) {
     featuredEl.innerHTML = "";
-    gridEl.innerHTML = `<div class="empty-state">No posts yet.</div>`;
+    gridEl.innerHTML = `<div class="empty-state reveal">No posts yet.</div>`;
+    applyReveal();
     return;
   }
 
@@ -77,7 +180,9 @@ function renderHome(posts) {
   featuredEl.innerHTML = createFeatured(first);
   gridEl.innerHTML = rest.length
     ? rest.map(createCard).join("")
-    : `<div class="empty-state">More posts coming soon.</div>`;
+    : `<div class="empty-state reveal">More posts coming soon.</div>`;
+
+  applyReveal();
 }
 
 function renderArchive(posts) {
@@ -100,6 +205,8 @@ function renderArchive(posts) {
     )
     .join("");
 
+  setupArchiveViewToggle(gridEl);
+
   function draw() {
     const filtered = posts.filter((post) => {
       const matchesCategory =
@@ -120,7 +227,9 @@ function renderArchive(posts) {
 
     gridEl.innerHTML = filtered.length
       ? filtered.map(createCard).join("")
-      : `<div class="empty-state">No posts found.</div>`;
+      : `<div class="empty-state reveal">No posts found.</div>`;
+
+    applyReveal();
   }
 
   filtersEl.addEventListener("click", (e) => {
@@ -177,6 +286,7 @@ function renderArticle(posts) {
   categoriesEl.textContent = categoryText(post.categories);
   introEl.textContent = post.intro;
 
+  bodyEl.classList.add("reveal");
   bodyEl.innerHTML = (post.body || [])
     .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
     .join("");
@@ -184,7 +294,7 @@ function renderArticle(posts) {
   sourcesEl.innerHTML = (post.sources || [])
     .map(
       (source) => `
-        <li>
+        <li class="reveal">
           <a href="${source.url}" target="_blank" rel="noopener noreferrer">
             ${escapeHtml(source.name)}
           </a>
@@ -192,9 +302,14 @@ function renderArticle(posts) {
       `
     )
     .join("");
+
+  applyReveal();
 }
 
 async function init() {
+  createBackToTop();
+  createProgressBar();
+
   try {
     const posts = await getPosts();
     const page = document.body.dataset.page;
@@ -211,11 +326,13 @@ async function init() {
     const introEl = document.getElementById("article-intro");
 
     if (homeGrid) {
-      homeGrid.innerHTML = `<div class="empty-state">Failed to load posts.</div>`;
+      homeGrid.innerHTML = `<div class="empty-state reveal">Failed to load posts.</div>`;
+      applyReveal();
     }
 
     if (archiveGrid) {
-      archiveGrid.innerHTML = `<div class="empty-state">Failed to load posts.</div>`;
+      archiveGrid.innerHTML = `<div class="empty-state reveal">Failed to load posts.</div>`;
+      applyReveal();
     }
 
     if (titleEl && introEl) {
