@@ -1,38 +1,31 @@
 [
   {
-    "id": "2026-03-26-street-signals",
+    "id": "2026-03-26-noise-rap-expansion",
     "date": "2026-03-26",
-    "title": "Today’s Street Signals",
-    "categories": ["MUSIC", "ART", "GRAFFITI", "FILM", "SKATE", "EVENTS"],
-    "intro": "街・現場・体験へ寄る、今日の世界のストリートカルチャーの温度をまとめた記録。",
+    "title": "Noise Rap Expansion",
+    "categories": ["MUSIC"],
+    "intro": "オンライン発のアンダーグラウンドが、そのまま現場規模へ拡張していく動き。",
     "body": [
-      "今日は、作品単体よりも都市空間や現場体験に重心が移っている日だった。音楽はネット発の熱がライブへ拡張し、アートは壁だけでなく街全体を回遊させる構成が目立つ。",
-      "グラフィティは祝祭や都市景観に接続し、スケートは競技というよりショーやコミュニティ体験として機能している。映画領域でも、主流から外れたフェスや実験性の高い場が引き続き熱を持っている。",
-      "WORLD DIG では、こうした日々の動きをニュースではなく作品アーカイブとして残していく。"
+      "ネット起点で熱を持ったラップや関連シーンが、ツアーやライブ空間へ広がっている。",
+      "ローカルな熱が現場で増幅される流れは、今のストリート音楽の重要な感触だ。",
+      "この動きは単なるリリース情報ではなく、カルチャーの移動経路そのものとして見るべきだ。"
     ],
     "sources": [
       {
-        "name": "Pitchfork",
-        "url": "https://pitchfork.com/"
-      },
-      {
-        "name": "HKWALLS",
-        "url": "https://hkwalls.org/"
-      },
-      {
-        "name": "Red Bull Skateboarding",
-        "url": "https://www.redbull.com/"
+        "name": "Pitchfork Music News",
+        "url": "https://pitchfork.com/news/"
       }
     ]
   },
   {
-    "id": "2026-03-25-hong-kong-heat",
-    "date": "2026-03-25",
-    "title": "Hong Kong Heat / Walls, Screens, City Flow",
-    "categories": ["ART", "GRAFFITI", "EVENTS"],
-    "intro": "香港の街全体を使ったアート回遊が、今週の都市カルチャーの熱を象徴している。",
+    "id": "2026-03-26-hong-kong-city-walls",
+    "date": "2026-03-26",
+    "title": "Hong Kong City Walls",
+    "categories": ["ART", "GRAFFITI"],
+    "intro": "香港の街全体を使ったアート回遊が、都市カルチャーの熱を象徴している。",
     "body": [
-      "壁画、LEDスクリーン、展示、回遊。都市の複数レイヤーを使った表現が目立ち、ストリートアートが単なる壁の絵ではなく、街の体験設計そのものになっている。",
+      "壁画、LEDスクリーン、展示、回遊が街の複数レイヤーで接続している。",
+      "ストリートアートが単なる壁の絵ではなく、街の体験設計そのものになっている。",
       "メジャーイベントとローカルなストリートの熱が隣接している状態こそ、今の香港の面白さだ。"
     ],
     "sources": [
@@ -47,19 +40,74 @@
     ]
   },
   {
-    "id": "2026-03-24-noise-rap-expansion",
-    "date": "2026-03-24",
-    "title": "Noise Rap Expansion",
-    "categories": ["MUSIC"],
-    "intro": "オンライン発のアンダーグラウンドが、そのまま現場規模へ拡張していく動き。",
+    "id": "2026-03-26-skate-community-show",
+    "date": "2026-03-26",
+    "title": "Skate as Community Show",
+    "categories": ["SKATE", "EVENTS"],
+    "intro": "スケートが競技というより、ショーとコミュニティ体験として機能している。",
     "body": [
-      "ネット起点で熱を持ったラップや関連シーンが、ツアーやライブ空間へ広がっている。ローカルな熱が現場で増幅される流れは、今のストリート音楽の重要な感触だ。",
-      "この動きは単なるリリース情報ではなく、カルチャーの移動経路そのものとして見るべきだ。"
+      "大会という枠組みだけでなく、現場の体験価値そのものが注目されている。",
+      "見ること、集まること、場を共有することがシーンの中心にある。",
+      "スケートはスポーツであると同時に、都市文化のライブな接点でもある。"
     ],
     "sources": [
       {
-        "name": "Pitchfork Music News",
-        "url": "https://pitchfork.com/news/"
+        "name": "Red Bull Skateboarding",
+        "url": "https://www.redbull.com/"
+      }
+    ]
+  },
+  {
+    "id": "2026-03-25-screened-city-culture",
+    "date": "2026-03-25",
+    "title": "Screened City Culture",
+    "categories": ["ART", "EVENTS"],
+    "intro": "都市空間の中でアートが壁からスクリーンへと拡張し、街そのものが展示面になっている。",
+    "body": [
+      "現代の都市型アートイベントでは、壁画だけでなく大型スクリーンやデジタル表示面も作品の一部になっている。",
+      "観客は会場に入るのではなく、街を歩きながら作品に出会う。",
+      "その体験設計自体が、ストリートと現代アートの境界を曖昧にしている。"
+    ],
+    "sources": [
+      {
+        "name": "Designboom",
+        "url": "https://www.designboom.com/"
+      }
+    ]
+  },
+  {
+    "id": "2026-03-25-underground-film-circuits",
+    "date": "2026-03-25",
+    "title": "Underground Film Circuits",
+    "categories": ["FILM"],
+    "intro": "主流から少し外れた上映や実験的な映像の場が、今も静かに熱を持ち続けている。",
+    "body": [
+      "映画は劇場公開だけで完結しない。フェス、ポップアップ上映、コミュニティスペースが独自の回路をつくっている。",
+      "小さな上映の場は、作品そのものよりも観客との距離感に価値がある。",
+      "そうした場の濃度が、ストリートカルチャーの映像面を支えている。"
+    ],
+    "sources": [
+      {
+        "name": "Nowness",
+        "url": "https://www.nowness.com/"
+      }
+    ]
+  },
+  {
+    "id": "2026-03-24-raw-sound-local-scenes",
+    "date": "2026-03-24",
+    "title": "Raw Sound, Local Scenes",
+    "categories": ["MUSIC", "EVENTS"],
+    "intro": "ローカルな熱量を持つ音が、そのまま現場の空気をつくっている。",
+    "body": [
+      "ジャンルより先に、場所の空気やコミュニティの濃度が音を規定している。",
+      "現場で鳴っている音は、その土地の速度や人の集まり方を反映する。",
+      "だからローカルシーンは、単なる地域性ではなく都市文化の核になる。"
+    ],
+    "sources": [
+      {
+        "name": "Resident Advisor",
+        "url": "https://ra.co/news"
       }
     ]
   }
