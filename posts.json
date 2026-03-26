@@ -1,5 +1,71 @@
 [
   {
+    "id": "2026-03-26-wu-tang-final-chamber-japan",
+    "date": "2026-03-26",
+    "title": "Wu-Tang Clan Returns to Japan for the Final Chamber",
+    "categories": ["MUSIC"],
+    "intro": "Wu-Tang Clanが最後のツアーで日本公演。Kアリーナ横浜で、単独公演としては29年ぶりの来日と案内されている。",
+    "body": [
+      "Wu-Tang Clanの最終ツアー『Wu-Tang Forever: The Final Chamber』の日本公演が、5月24日にKアリーナ横浜で予定されている。",
+      "Creativemanとinterfmの案内では、単独公演としては29年ぶりの来日とされており、ヒップホップ史に残るグループの節目として強い注目を集めている。",
+      "単なる懐古ではなく、レジェンドが最後の章をどのように締めくくるのかという意味でも、2026年の重要公演のひとつになっている。"
+    ],
+    "sources": [
+      {
+        "name": "Creativeman",
+        "url": "https://www.creativeman.co.jp/event/wu-tang-clan/"
+      },
+      {
+        "name": "interfm",
+        "url": "https://www.interfm.co.jp/events/single/wutangclan"
+      }
+    ]
+  },
+  {
+    "id": "2026-03-26-ye-bully-march-27",
+    "date": "2026-03-26",
+    "title": "Ye / BULLY Reheats Around March 27 Release",
+    "categories": ["MUSIC"],
+    "intro": "Ye『BULLY』が3月27日リリース軸で再加熱。Spotifyのプリセーブ表示が、現時点で最も直接的な確認先になっている。",
+    "body": [
+      "Yeの新作『BULLY』をめぐる話題が、3月27日リリース軸で再び熱を帯びている。",
+      "Spotifyのプリセーブページでは『Releases on March 27, 2026』と表示されており、現時点ではこの日付がもっとも直接的な確認ラインになっている。",
+      "周辺では告知の揺れや不確定さ自体も話題になっており、作品そのものだけでなく、リリースをめぐる空気ごとカルチャー化している。"
+    ],
+    "sources": [
+      {
+        "name": "Spotify prerelease page",
+        "url": "https://open.spotify.com/prerelease/4xFs0x8abwU3H9uNRPFRmE"
+      }
+    ]
+  },
+  {
+    "id": "2026-03-26-virgil-abloh-archive-aj1-alaska",
+    "date": "2026-03-26",
+    "title": "Virgil Abloh Archive × Air Jordan 1 'Alaska' Is This Week’s Key Drop",
+    "categories": ["SNEAKERS"],
+    "intro": "Virgil Abloh Archive × Air Jordan 1 “Alaska” が今週の本命。新章のはじまりとして強く注目されている。",
+    "body": [
+      "Virgil Abloh ArchiveとAir Jordan 1 High OG 'Alaska' のリリースが、今週のスニーカーシーンで大きな焦点になっている。",
+      "WWDは抽選受付が3月23日までと報じ、GQはこれをNikeとVirgil Abloh Archiveの新章として紹介している。",
+      "Virgil Abloh Archive公式も、これを初のauthorized editionと位置づけており、単なる復刻や派生ではなく、アーカイブの継承そのものとして見られている。"
+    ],
+    "sources": [
+      {
+        "name": "WWD",
+        "url": "https://wwd.com/footwear-news/sneaker-news/virgil-abloh-archive-air-jordan-1-high-og-alaska-raffle-aa3834-100-1238685468/"
+      },
+      {
+        "name": "GQ",
+        "url": "https://www.gq.com/story/virgil-abloh-archive-air-jordan-1-alaska-release-date"
+      },
+      {
+        "name": "Virgil Abloh Archive",
+        "url": "https://www.virgilabloh.com/aj1"
+      }
+    ]
+  },
+  {
     "id": "2026-03-26-noise-rap-expansion",
     "date": "2026-03-26",
     "title": "Noise Rap Expansion",
