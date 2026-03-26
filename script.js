@@ -19,16 +19,25 @@ function categoryText(categories = []) {
   return categories.join(" / ");
 }
 
+function escapeHtml(str = "") {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 function createCard(post) {
   return `
-    <a class="post-card" href="article.html?id=${post.id}">
+    <a class="post-card" href="article.html?id=${encodeURIComponent(post.id)}">
       <div>
-        <div class="card-meta">${formatDate(post.date)}</div>
-        <h3 class="card-title">${post.title}</h3>
-        <p class="card-intro">${post.intro}</p>
+        <div class="card-meta">${escapeHtml(categoryText(post.categories))}</div>
+        <h3 class="card-title">${escapeHtml(post.title)}</h3>
+        <p class="card-intro">${escapeHtml(post.intro)}</p>
       </div>
       <div class="card-bottom">
-        <span>${categoryText(post.categories)}</span>
+        <span>${formatDate(post.date)}</span>
         <span>${post.sources.length} SOURCES</span>
       </div>
     </a>
@@ -37,15 +46,15 @@ function createCard(post) {
 
 function createFeatured(post) {
   return `
-    <a class="featured-card" href="article.html?id=${post.id}">
+    <a class="featured-card" href="article.html?id=${encodeURIComponent(post.id)}">
       <div class="featured-left">
-        <div class="featured-meta">${formatDate(post.date)} / FEATURED</div>
-        <h2 class="featured-title">${post.title}</h2>
+        <div class="featured-meta">FEATURED / ${escapeHtml(categoryText(post.categories))}</div>
+        <h2 class="featured-title">${escapeHtml(post.title)}</h2>
       </div>
       <div class="featured-right">
-        <p class="featured-intro">${post.intro}</p>
+        <p class="featured-intro">${escapeHtml(post.intro)}</p>
         <div class="card-bottom">
-          <span>${categoryText(post.categories)}</span>
+          <span>${formatDate(post.date)}</span>
           <span>${post.sources.length} SOURCES</span>
         </div>
       </div>
@@ -58,9 +67,17 @@ function renderHome(posts) {
   const gridEl = document.getElementById("post-grid");
   if (!featuredEl || !gridEl) return;
 
+  if (!posts.length) {
+    featuredEl.innerHTML = "";
+    gridEl.innerHTML = `<div class="empty-state">No posts yet.</div>`;
+    return;
+  }
+
   const [first, ...rest] = posts;
-  if (first) featuredEl.innerHTML = createFeatured(first);
-  gridEl.innerHTML = rest.map(createCard).join("");
+  featuredEl.innerHTML = createFeatured(first);
+  gridEl.innerHTML = rest.length
+    ? rest.map(createCard).join("")
+    : `<div class="empty-state">More posts coming soon.</div>`;
 }
 
 function renderArchive(posts) {
@@ -69,27 +86,33 @@ function renderArchive(posts) {
   const filtersEl = document.getElementById("category-filters");
   if (!gridEl || !searchEl || !filtersEl) return;
 
-  const categories = ["ALL", ...new Set(posts.flatMap(post => post.categories))];
+  const categories = ["ALL", ...new Set(posts.flatMap((post) => post.categories))];
   let activeCategory = "ALL";
   let searchValue = "";
 
-  filtersEl.innerHTML = categories.map(cat => `
-    <button class="filter-btn ${cat === "ALL" ? "active" : ""}" data-category="${cat}">
-      ${cat}
-    </button>
-  `).join("");
+  filtersEl.innerHTML = categories
+    .map(
+      (cat) => `
+        <button class="filter-btn ${cat === "ALL" ? "active" : ""}" data-category="${escapeHtml(cat)}">
+          ${escapeHtml(cat)}
+        </button>
+      `
+    )
+    .join("");
 
   function draw() {
-    const filtered = posts.filter(post => {
+    const filtered = posts.filter((post) => {
       const matchesCategory =
         activeCategory === "ALL" || post.categories.includes(activeCategory);
 
       const haystack = [
         post.title,
         post.intro,
-        post.body.join(" "),
-        post.categories.join(" ")
-      ].join(" ").toLowerCase();
+        ...(post.body || []),
+        ...(post.categories || [])
+      ]
+        .join(" ")
+        .toLowerCase();
 
       const matchesSearch = haystack.includes(searchValue.toLowerCase());
       return matchesCategory && matchesSearch;
@@ -103,9 +126,10 @@ function renderArchive(posts) {
   filtersEl.addEventListener("click", (e) => {
     const btn = e.target.closest(".filter-btn");
     if (!btn) return;
+
     activeCategory = btn.dataset.category;
 
-    [...filtersEl.querySelectorAll(".filter-btn")].forEach(b => {
+    [...filtersEl.querySelectorAll(".filter-btn")].forEach((b) => {
       b.classList.toggle("active", b.dataset.category === activeCategory);
     });
 
@@ -123,31 +147,50 @@ function renderArchive(posts) {
 function renderArticle(posts) {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
-  if (!id) return;
 
-  const post = posts.find(item => item.id === id);
+  const dateEl = document.getElementById("article-date");
+  const titleEl = document.getElementById("article-title");
+  const categoriesEl = document.getElementById("article-categories");
+  const introEl = document.getElementById("article-intro");
+  const bodyEl = document.getElementById("article-body");
+  const sourcesEl = document.getElementById("article-sources");
+
+  if (!dateEl || !titleEl || !categoriesEl || !introEl || !bodyEl || !sourcesEl) return;
+
+  if (!id) {
+    titleEl.textContent = "Article not found";
+    introEl.textContent = "No article ID was provided.";
+    return;
+  }
+
+  const post = posts.find((item) => item.id === id);
+
   if (!post) {
-    document.getElementById("article-title").textContent = "Article not found";
+    titleEl.textContent = "Article not found";
+    introEl.textContent = "The requested article does not exist.";
     return;
   }
 
   document.title = `${post.title} | WORLD DIG`;
-  document.getElementById("article-date").textContent = formatDate(post.date);
-  document.getElementById("article-title").textContent = post.title;
-  document.getElementById("article-categories").textContent = categoryText(post.categories);
-  document.getElementById("article-intro").textContent = post.intro;
-  document.getElementById("article-body").innerHTML = post.body
-    .map(paragraph => `<p>${paragraph}</p>`)
+  dateEl.textContent = formatDate(post.date);
+  titleEl.textContent = post.title;
+  categoriesEl.textContent = categoryText(post.categories);
+  introEl.textContent = post.intro;
+
+  bodyEl.innerHTML = (post.body || [])
+    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
     .join("");
 
-  document.getElementById("article-sources").innerHTML = post.sources
-    .map(source => `
-      <li>
-        <a href="${source.url}" target="_blank" rel="noopener noreferrer">
-          ${source.name}
-        </a>
-      </li>
-    `)
+  sourcesEl.innerHTML = (post.sources || [])
+    .map(
+      (source) => `
+        <li>
+          <a href="${source.url}" target="_blank" rel="noopener noreferrer">
+            ${escapeHtml(source.name)}
+          </a>
+        </li>
+      `
+    )
     .join("");
 }
 
@@ -161,6 +204,24 @@ async function init() {
     if (page === "article") renderArticle(posts);
   } catch (error) {
     console.error(error);
+
+    const homeGrid = document.getElementById("post-grid");
+    const archiveGrid = document.getElementById("archive-grid");
+    const titleEl = document.getElementById("article-title");
+    const introEl = document.getElementById("article-intro");
+
+    if (homeGrid) {
+      homeGrid.innerHTML = `<div class="empty-state">Failed to load posts.</div>`;
+    }
+
+    if (archiveGrid) {
+      archiveGrid.innerHTML = `<div class="empty-state">Failed to load posts.</div>`;
+    }
+
+    if (titleEl && introEl) {
+      titleEl.textContent = "Failed to load article";
+      introEl.textContent = "posts.json could not be loaded.";
+    }
   }
 }
 
