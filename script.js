@@ -38,26 +38,26 @@ function getCategoryClass(category = "") {
   return category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
 
-function getVisualPatternClass(category = "") {
+function getVisualCategoryClass(category = "") {
   const map = {
-    MUSIC: "visual-wave visual-grid",
-    ART: "visual-circle visual-noise",
-    GRAFFITI: "visual-diagonal visual-noise",
-    FILM: "visual-bars visual-grid",
-    SKATE: "visual-wave visual-diagonal",
-    EVENTS: "visual-circle visual-bars"
+    MUSIC: "visual-music",
+    ART: "visual-art",
+    GRAFFITI: "visual-graffiti",
+    FILM: "visual-film",
+    SKATE: "visual-skate",
+    EVENTS: "visual-events"
   };
-  return map[category] || "visual-grid visual-noise";
+  return map[category] || "visual-music";
 }
 
 function createVisual(category, label) {
-  const safeCategory = escapeHtml(category);
   const safeLabel = escapeHtml(label || category);
-  const patternClass = getVisualPatternClass(category);
+  const visualClass = getVisualCategoryClass(category);
 
   return `
-    <div class="card-visual">
-      <div class="visual-inner ${patternClass}"></div>
+    <div class="card-visual visual-corner">
+      <div class="visual-inner ${visualClass}"></div>
+      <div class="visual-frame"></div>
       <div class="visual-label">${safeLabel}</div>
     </div>
   `;
@@ -65,11 +65,12 @@ function createVisual(category, label) {
 
 function createFeaturedVisual(category, label) {
   const safeLabel = escapeHtml(label || category);
-  const patternClass = getVisualPatternClass(category);
+  const visualClass = getVisualCategoryClass(category);
 
   return `
-    <div class="featured-visual">
-      <div class="visual-inner ${patternClass}"></div>
+    <div class="featured-visual visual-corner">
+      <div class="visual-inner ${visualClass}"></div>
+      <div class="visual-frame"></div>
       <div class="visual-label">${safeLabel}</div>
     </div>
   `;
@@ -77,9 +78,10 @@ function createFeaturedVisual(category, label) {
 
 function createCard(post) {
   const primaryCategory = getPrimaryCategory(post);
+  const categoryClass = getCategoryClass(primaryCategory);
 
   return `
-    <a class="post-card reveal" href="article.html?id=${encodeURIComponent(post.id)}">
+    <a class="post-card ${categoryClass} reveal" href="article.html?id=${encodeURIComponent(post.id)}">
       ${createVisual(primaryCategory, primaryCategory)}
       <div class="card-main">
         <div>
