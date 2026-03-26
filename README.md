@@ -1,1 +1,1 @@
-# joooointmagazin
+# jooooint
