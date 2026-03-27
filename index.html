@@ -34,7 +34,20 @@
 
     <section class="category-band-section">
       <div class="wrap">
-        <div id="hero-categories" class="hero-categories"></div>
+        <button
+          type="button"
+          class="category-toggle"
+          id="category-toggle"
+          aria-expanded="false"
+          aria-controls="hero-categories-wrap"
+        >
+          <span>CATEGORIES</span>
+          <span class="category-toggle-icon">＋</span>
+        </button>
+
+        <div id="hero-categories-wrap" class="hero-categories-wrap">
+          <div id="hero-categories" class="hero-categories"></div>
+        </div>
       </div>
     </section>
 
