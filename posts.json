@@ -4,11 +4,12 @@
     "date": "2026-03-27",
     "title": "NIGO Retrospective Lands in London",
     "categories": ["ART", "FASHION"],
+    "thumbnail": "images/nigo-london.jpg",
     "intro": "Design MuseumでNIGOの大回顧展が始動。ストリートウェアだけでなく、ヒップホップと日本のクラフトまで横断する構成が強い。",
     "body": [
       "Design Museumの『NIGO: From Japan with Love』は、5月1日から10月4日まで開催される大規模回顧展だ。",
       "700点を超える展示に加え、10代の部屋の再現、手びねりの陶芸、ガラスの茶室まで含まれており、NIGOの活動が単なるストリートウェアの文脈ではなく、ヒップホップと日本の工芸文化をまたぐ存在として提示されている。",
-      "日本の地下感覚が、いまや世界の文化史として扱われ始めている。その象徴のひとつとして、この展示はかなり重要だ。"
+      "日本の地下感覚が、いまや世界の文化史として扱われ始めている。その象徴のひとつとして、この展示はかなり重要だ."
     ],
     "sources": [
       {
@@ -22,6 +23,7 @@
     "date": "2026-03-27",
     "title": "Virgil Abloh Archive x fragment x V.A. Tokyo Ignites",
     "categories": ["FASHION", "SNEAKERS"],
+    "thumbnail": "images/virgil-alaska.jpg",
     "intro": "Virgil Abloh ArchiveがfragmentとV.A. Tokyoを巻き込んだ限定カプセルを発表。東京がアーカイブを再編集する現場になっている。",
     "body": [
       "Virgil Abloh Archiveは、fragmentとV.A. Tokyoを巻き込んだ限定アパレルカプセルを発表した。",
@@ -40,6 +42,7 @@
     "date": "2026-03-27",
     "title": "DAIRIKU Opens Japan-Only Pop-Up at Shibuya PARCO",
     "categories": ["FASHION", "EVENTS"],
+    "thumbnail": "images/dairiku-parco.jpg",
     "intro": "DAIRIKUが渋谷PARCOで日本限定ポップアップを開催。東京ローカルの青春映画のような湿度が濃い。",
     "body": [
       "DAIRIKUはShibuya PARCOで、初の日本限定ポップアップを3月25日から31日まで開催している。",
@@ -58,6 +61,7 @@
     "date": "2026-03-27",
     "title": "Palace x EVISU Reunites for a Fifth Time",
     "categories": ["SKATE", "FASHION"],
+    "thumbnail": "images/palace-evisu.jpg",
     "intro": "Palace × EVISUのSpring 2026カプセルが公開。スケートと和デニムの関係を、ただのコラボで終わらせていない。",
     "body": [
       "Palace SkateboardsとEVISUによるSpring 2026カプセルが公開された。",
@@ -76,6 +80,7 @@
     "date": "2026-03-27",
     "title": "MoMA x Converse Japan Hits Today",
     "categories": ["SNEAKERS", "ART"],
+    "thumbnail": "images/moma-converse.jpg",
     "intro": "MoMA × Converse Japan ALL STAR LGCY HI が本日ローンチ。クラシックをギャラリー仕様に寄せる感じがいい。",
     "body": [
       "MoMA x Converse Japan ALL STAR LGCY HI は、3月20日にMoMA Japanで先行し、3月27日にConverse Japanでローンチされる。",
@@ -94,6 +99,7 @@
     "date": "2026-03-27",
     "title": "Raymond Lemstra at NANZUKA UNDERGROUND",
     "categories": ["ART"],
+    "thumbnail": "images/raymond-lemstra.jpg",
     "intro": "NANZUKA UNDERGROUNDでRaymond Lemstra展。静かな不穏さが残る、アンダーグラウンド美術のいい温度。",
     "body": [
       "東京のNANZUKA UNDERGROUNDでは、Raymond Lemstraの『Good Looking』が4月4日まで開催されている。",
@@ -112,6 +118,7 @@
     "date": "2026-03-27",
     "title": "Rainbow Disco Club 2026 Locks in the Underground Core",
     "categories": ["MUSIC", "EVENTS"],
+    "thumbnail": "images/rdc-2026.jpg",
     "intro": "Rainbow Disco Club 2026のラインアップが濃い。日本の地下ダンスミュージックが共同中心地として鳴っている。",
     "body": [
       "Rainbow Disco Club 2026は、4月17日から19日まで東伊豆クロスカントリーコースで開催される。",
@@ -130,6 +137,7 @@
     "date": "2026-03-27",
     "title": "Tokyo FW26 Pushes Footwear Further into Experiment",
     "categories": ["FASHION", "SNEAKERS"],
+    "thumbnail": "images/tokyo-fw26.jpg",
     "intro": "東京FW26では足元がさらに実験寄りに。公式と非公式の両方で熱をつくる街として東京が強い。",
     "body": [
       "Hypebeastは今季の東京FW26を、massiveなavant-garde silhouettesとtechnical collaborationsが支配する足元トレンドとして整理している。",
@@ -152,6 +160,7 @@
     "date": "2026-03-27",
     "title": "SUMMER SONIC 2026 Shows the Shape of Japan’s Summer",
     "categories": ["MUSIC", "EVENTS"],
+    "thumbnail": "images/summer-sonic-2026.jpg",
     "intro": "SUMMER SONIC 2026が第3弾アーティストを発表。メジャーとオルタナの混線具合が今年も強い。",
     "body": [
       "SUMMER SONIC 2026は、3月25日に第3弾アーティストを発表し、Dermot Kennedy、Holly Humberstone、マカロニえんぴつの追加を告知した。",
@@ -174,6 +183,7 @@
     "date": "2026-03-26",
     "title": "Wu-Tang Clan Returns to Japan for the Final Chamber",
     "categories": ["MUSIC"],
+    "thumbnail": "images/wu-tang-final-chamber.jpg",
     "intro": "Wu-Tang Clanが最後のツアーで日本公演。Kアリーナ横浜で、単独公演としては29年ぶりの来日と案内されている。",
     "body": [
       "Wu-Tang Clanの最終ツアー『Wu-Tang Forever: The Final Chamber』の日本公演が、5月24日にKアリーナ横浜で予定されている。",
@@ -196,6 +206,7 @@
     "date": "2026-03-26",
     "title": "Ye / BULLY Reheats Around March 27 Release",
     "categories": ["MUSIC"],
+    "thumbnail": "images/ye-bully.jpg",
     "intro": "Ye『BULLY』が3月27日リリース軸で再加熱。Spotifyのプリセーブ表示が、現時点で最も直接的な確認先になっている。",
     "body": [
       "Yeの新作『BULLY』をめぐる話題が、3月27日リリース軸で再び熱を帯びている。",
@@ -214,6 +225,7 @@
     "date": "2026-03-26",
     "title": "Virgil Abloh Archive × Air Jordan 1 'Alaska' Is This Week’s Key Drop",
     "categories": ["SNEAKERS"],
+    "thumbnail": "images/virgil-alaska.jpg",
     "intro": "Virgil Abloh Archive × Air Jordan 1 “Alaska” が今週の本命。新章のはじまりとして強く注目されている。",
     "body": [
       "Virgil Abloh ArchiveとAir Jordan 1 High OG 'Alaska' のリリースが、今週のスニーカーシーンで大きな焦点になっている。",
@@ -232,118 +244,6 @@
       {
         "name": "Virgil Abloh Archive",
         "url": "https://www.virgilabloh.com/aj1"
-      }
-    ]
-  },
-  {
-    "id": "2026-03-26-noise-rap-expansion",
-    "date": "2026-03-26",
-    "title": "Noise Rap Expansion",
-    "categories": ["MUSIC"],
-    "intro": "オンライン発のアンダーグラウンドが、そのまま現場規模へ拡張していく動き。",
-    "body": [
-      "ネット起点で熱を持ったラップや関連シーンが、ツアーやライブ空間へ広がっている。",
-      "ローカルな熱が現場で増幅される流れは、今のストリート音楽の重要な感触だ。",
-      "この動きは単なるリリース情報ではなく、カルチャーの移動経路そのものとして見るべきだ。"
-    ],
-    "sources": [
-      {
-        "name": "Pitchfork Music News",
-        "url": "https://pitchfork.com/news/"
-      }
-    ]
-  },
-  {
-    "id": "2026-03-26-hong-kong-city-walls",
-    "date": "2026-03-26",
-    "title": "Hong Kong City Walls",
-    "categories": ["ART", "GRAFFITI"],
-    "intro": "香港の街全体を使ったアート回遊が、都市カルチャーの熱を象徴している。",
-    "body": [
-      "壁画、LEDスクリーン、展示、回遊が街の複数レイヤーで接続している。",
-      "ストリートアートが単なる壁の絵ではなく、街の体験設計そのものになっている。",
-      "メジャーイベントとローカルなストリートの熱が隣接している状態こそ、今の香港の面白さだ。"
-    ],
-    "sources": [
-      {
-        "name": "HKWALLS Official Site",
-        "url": "https://hkwalls.org/"
-      },
-      {
-        "name": "Art Basel Hong Kong",
-        "url": "https://www.artbasel.com/hong-kong"
-      }
-    ]
-  },
-  {
-    "id": "2026-03-26-skate-community-show",
-    "date": "2026-03-26",
-    "title": "Skate as Community Show",
-    "categories": ["SKATE", "EVENTS"],
-    "intro": "スケートが競技というより、ショーとコミュニティ体験として機能している。",
-    "body": [
-      "大会という枠組みだけでなく、現場の体験価値そのものが注目されている。",
-      "見ること、集まること、場を共有することがシーンの中心にある。",
-      "スケートはスポーツであると同時に、都市文化のライブな接点でもある。"
-    ],
-    "sources": [
-      {
-        "name": "Red Bull Skateboarding",
-        "url": "https://www.redbull.com/"
-      }
-    ]
-  },
-  {
-    "id": "2026-03-25-screened-city-culture",
-    "date": "2026-03-25",
-    "title": "Screened City Culture",
-    "categories": ["ART", "EVENTS"],
-    "intro": "都市空間の中でアートが壁からスクリーンへと拡張し、街そのものが展示面になっている。",
-    "body": [
-      "現代の都市型アートイベントでは、壁画だけでなく大型スクリーンやデジタル表示面も作品の一部になっている。",
-      "観客は会場に入るのではなく、街を歩きながら作品に出会う。",
-      "その体験設計自体が、ストリートと現代アートの境界を曖昧にしている。"
-    ],
-    "sources": [
-      {
-        "name": "Designboom",
-        "url": "https://www.designboom.com/"
-      }
-    ]
-  },
-  {
-    "id": "2026-03-25-underground-film-circuits",
-    "date": "2026-03-25",
-    "title": "Underground Film Circuits",
-    "categories": ["FILM"],
-    "intro": "主流から少し外れた上映や実験的な映像の場が、今も静かに熱を持ち続けている。",
-    "body": [
-      "映画は劇場公開だけで完結しない。フェス、ポップアップ上映、コミュニティスペースが独自の回路をつくっている。",
-      "小さな上映の場は、作品そのものよりも観客との距離感に価値がある。",
-      "そうした場の濃度が、ストリートカルチャーの映像面を支えている。"
-    ],
-    "sources": [
-      {
-        "name": "Nowness",
-        "url": "https://www.nowness.com/"
-      }
-    ]
-  },
-  {
-    "id": "2026-03-24-raw-sound-local-scenes",
-    "date": "2026-03-24",
-    "title": "Raw Sound, Local Scenes",
-    "categories": ["MUSIC", "EVENTS"],
-    "intro": "ローカルな熱量を持つ音が、そのまま現場の空気をつくっている。",
-    "body": [
-      "ジャンルより先に、場所の空気やコミュニティの濃度が音を規定している。",
-      "現場で鳴っている音は、その土地の速度や人の集まり方を反映する。",
-      "だからローカルシーンは、単なる地域性ではなく都市文化の核になる。"
-    ],
-    "sources": [
-      {
-        "name": "Resident Advisor",
-        "url": "https://ra.co/news"
       }
     ]
   }
