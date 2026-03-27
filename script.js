@@ -1,6 +1,15 @@
 const POSTS_URL = "posts.json";
 
-const CATEGORY_ORDER = ["MUSIC", "ART", "GRAFFITI", "FILM", "SKATE", "EVENTS", "SNEAKERS"];
+const CATEGORY_ORDER = [
+  "MUSIC",
+  "ART",
+  "GRAFFITI",
+  "FILM",
+  "SKATE",
+  "EVENTS",
+  "SNEAKERS",
+  "FASHION"
+];
 
 async function getPosts() {
   const res = await fetch(POSTS_URL);
@@ -22,7 +31,7 @@ function categoryText(categories = []) {
 }
 
 function escapeHtml(str = "") {
-  return str
+  return String(str)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -38,41 +47,26 @@ function getCategoryClass(category = "") {
   return category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
 
-function getVisualCategoryClass(category = "") {
-  const map = {
-    MUSIC: "visual-music",
-    ART: "visual-art",
-    GRAFFITI: "visual-graffiti",
-    FILM: "visual-film",
-    SKATE: "visual-skate",
-    EVENTS: "visual-events",
-    SNEAKERS: "visual-sneakers"
-  };
-  return map[category] || "visual-music";
-}
+function createThumb(post, featured = false) {
+  const category = getPrimaryCategory(post);
+  const safeCategory = escapeHtml(category);
+  const thumbClass = featured ? "featured-thumb" : "card-thumb";
 
-function createVisual(category, label) {
-  const safeLabel = escapeHtml(label || category);
-  const visualClass = getVisualCategoryClass(category);
+  if (post.thumbnail) {
+    return `
+      <div class="${thumbClass}">
+        <img src="${escapeHtml(post.thumbnail)}" alt="${escapeHtml(post.title)}">
+        <div class="thumb-overlay"></div>
+        <div class="thumb-category">${safeCategory}</div>
+      </div>
+    `;
+  }
 
   return `
-    <div class="card-visual visual-corner">
-      <div class="visual-inner ${visualClass}"></div>
-      <div class="visual-frame"></div>
-      <div class="visual-label">${safeLabel}</div>
-    </div>
-  `;
-}
-
-function createFeaturedVisual(category, label) {
-  const safeLabel = escapeHtml(label || category);
-  const visualClass = getVisualCategoryClass(category);
-
-  return `
-    <div class="featured-visual visual-corner">
-      <div class="visual-inner ${visualClass}"></div>
-      <div class="visual-frame"></div>
-      <div class="visual-label">${safeLabel}</div>
+    <div class="${thumbClass} fallback-thumb ${getCategoryClass(category)}">
+      <div class="thumb-overlay"></div>
+      <div class="thumb-category">${safeCategory}</div>
+      <div class="fallback-title">${escapeHtml(post.title)}</div>
     </div>
   `;
 }
@@ -83,7 +77,7 @@ function createCard(post) {
 
   return `
     <a class="post-card ${categoryClass} reveal" href="article.html?id=${encodeURIComponent(post.id)}">
-      ${createVisual(primaryCategory, primaryCategory)}
+      ${createThumb(post, false)}
       <div class="card-main">
         <div>
           <div class="card-meta">${escapeHtml(categoryText(post.categories))}</div>
@@ -100,19 +94,17 @@ function createCard(post) {
 }
 
 function createFeatured(post) {
-  const primaryCategory = getPrimaryCategory(post);
-
   return `
     <a class="featured-card reveal" href="article.html?id=${encodeURIComponent(post.id)}">
       <div class="featured-left">
+        ${createThumb(post, true)}
+      </div>
+      <div class="featured-right">
         <div>
           <div class="featured-meta">FEATURED / ${escapeHtml(categoryText(post.categories))}</div>
           <h2 class="featured-title">${escapeHtml(post.title)}</h2>
+          <p class="featured-intro">${escapeHtml(post.intro)}</p>
         </div>
-        ${createFeaturedVisual(primaryCategory, primaryCategory)}
-      </div>
-      <div class="featured-right">
-        <p class="featured-intro">${escapeHtml(post.intro)}</p>
         <div class="card-bottom">
           <span>${formatDate(post.date)}</span>
           <span>${post.sources.length} SOURCES</span>
@@ -130,14 +122,13 @@ function renderHeroCategories(posts) {
   const ordered = CATEGORY_ORDER.filter((cat) => existing.has(cat));
 
   el.innerHTML = ordered
-    .map((cat) => {
-      const slug = getCategoryClass(cat);
-      return `
-        <a class="category-chip ${slug} reveal" href="archive.html?category=${encodeURIComponent(cat)}">
+    .map(
+      (cat) => `
+        <a class="category-chip ${getCategoryClass(cat)} reveal" href="archive.html?category=${encodeURIComponent(cat)}">
           <span>${escapeHtml(cat)}</span>
         </a>
-      `;
-    })
+      `
+    )
     .join("");
 }
 
@@ -170,11 +161,7 @@ function createBackToTop() {
   document.body.appendChild(btn);
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 500) {
-      btn.classList.add("show");
-    } else {
-      btn.classList.remove("show");
-    }
+    btn.classList.toggle("show", window.scrollY > 500);
   });
 
   btn.addEventListener("click", () => {
