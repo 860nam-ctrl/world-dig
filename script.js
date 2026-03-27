@@ -340,6 +340,7 @@ function renderArticle(posts) {
   const titleEl = document.getElementById("article-title");
   const categoriesEl = document.getElementById("article-categories");
   const introEl = document.getElementById("article-intro");
+  const thumbEl = document.getElementById("article-thumb");
   const bodyEl = document.getElementById("article-body");
   const sourcesEl = document.getElementById("article-sources");
 
@@ -364,6 +365,27 @@ function renderArticle(posts) {
   titleEl.textContent = post.title;
   categoriesEl.textContent = categoryText(post.categories);
   introEl.textContent = post.intro;
+
+  if (thumbEl) {
+    const primaryCategory = getPrimaryCategory(post);
+    if (post.thumbnail) {
+      thumbEl.innerHTML = `
+        <div class="article-thumb reveal">
+          <img src="${escapeHtml(post.thumbnail)}" alt="${escapeHtml(post.title)}">
+          <div class="thumb-overlay"></div>
+          <div class="thumb-category">${escapeHtml(primaryCategory)}</div>
+        </div>
+      `;
+    } else {
+      thumbEl.innerHTML = `
+        <div class="article-thumb fallback-thumb ${getCategoryClass(primaryCategory)} reveal">
+          <div class="thumb-overlay"></div>
+          <div class="thumb-category">${escapeHtml(primaryCategory)}</div>
+          <div class="fallback-title">${escapeHtml(post.title)}</div>
+        </div>
+      `;
+    }
+  }
 
   bodyEl.classList.add("reveal");
   bodyEl.innerHTML = (post.body || [])
