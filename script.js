@@ -132,6 +132,53 @@ function renderHeroCategories(posts) {
     .join("");
 }
 
+function setupCategoryToggle() {
+  const toggleBtn = document.getElementById("category-toggle");
+  const wrap = document.getElementById("hero-categories-wrap");
+
+  if (!toggleBtn || !wrap) return;
+
+  const mobileQuery = window.matchMedia("(max-width: 640px)");
+
+  function syncState() {
+    if (!mobileQuery.matches) {
+      wrap.classList.remove("is-collapsed");
+      wrap.classList.remove("is-open");
+      toggleBtn.setAttribute("aria-expanded", "true");
+      return;
+    }
+
+    if (!wrap.classList.contains("is-open")) {
+      wrap.classList.add("is-collapsed");
+      toggleBtn.setAttribute("aria-expanded", "false");
+    }
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    if (!mobileQuery.matches) return;
+
+    const isOpen = wrap.classList.contains("is-open");
+
+    if (isOpen) {
+      wrap.classList.remove("is-open");
+      wrap.classList.add("is-collapsed");
+      toggleBtn.setAttribute("aria-expanded", "false");
+    } else {
+      wrap.classList.add("is-open");
+      wrap.classList.remove("is-collapsed");
+      toggleBtn.setAttribute("aria-expanded", "true");
+    }
+  });
+
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener("change", syncState);
+  } else if (typeof mobileQuery.addListener === "function") {
+    mobileQuery.addListener(syncState);
+  }
+
+  syncState();
+}
+
 function applyReveal() {
   const targets = document.querySelectorAll(".reveal");
   if (!targets.length) return;
@@ -410,6 +457,7 @@ function renderArticle(posts) {
 async function init() {
   createBackToTop();
   createProgressBar();
+  setupCategoryToggle();
 
   try {
     const posts = await getPosts();
