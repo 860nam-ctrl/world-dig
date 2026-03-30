@@ -23,7 +23,7 @@
     "date": "2026-03-29",
     "title": "JPEGMAFIA Secret Tokyo Show Rumor Gains Heat",
     "categories": ["MUSIC"],
-    "thumbnail": "images/jpegmafia-secret-tokyo.jpg",
+    "thumbnail": "images/jpegmafia-secret-show.jpg",
     "intro": "JPEGMAFIAが東京で極秘来日ライブを計画中との情報。オルタナラップの“地下回帰”が日本でも加速している。",
     "body": [
       "JPEGMAFIAがアジアツアーの一環として、東京でシークレットライブを計画しているとの情報が出ている。",
@@ -80,7 +80,7 @@
     "date": "2026-03-29",
     "title": "Nagoya Crew Turns Dead Space into a DIY Skate Spot",
     "categories": ["SKATE"],
-    "thumbnail": "images/nagoya-diy-skate.jpg",
+    "thumbnail": "images/nagoya-diy-skate-spot.jpg",
     "intro": "名古屋のローカルクルーが廃スペースを改造し、新しいスケートスポットを制作。90年代的DIY精神が復活。",
     "body": [
       "名古屋のローカルスケートクルーが、廃スペースを改造して新しいDIYスポットを制作している。",
@@ -404,7 +404,6 @@
     "date": "2026-03-26",
     "title": "Noise Rap Expansion",
     "categories": ["MUSIC"],
-    "thumbnail": "images/noise-rap-expansion.jpg",
     "intro": "オンライン発のアンダーグラウンドが、そのまま現場規模へ拡張していく動き。",
     "body": [
       "ネット起点で熱を持ったラップや関連シーンが、ツアーやライブ空間へ広がっている。",
@@ -423,7 +422,6 @@
     "date": "2026-03-26",
     "title": "Hong Kong City Walls",
     "categories": ["ART", "GRAFFITI"],
-    "thumbnail": "images/hong-kong-city-walls.jpg",
     "intro": "香港の街全体を使ったアート回遊が、都市カルチャーの熱を象徴している。",
     "body": [
       "壁画、LEDスクリーン、展示、回遊が街の複数レイヤーで接続している。",
@@ -446,7 +444,6 @@
     "date": "2026-03-26",
     "title": "Skate as Community Show",
     "categories": ["SKATE", "EVENTS"],
-    "thumbnail": "images/skate-community-show.jpg",
     "intro": "スケートが競技というより、ショーとコミュニティ体験として機能している。",
     "body": [
       "大会という枠組みだけでなく、現場の体験価値そのものが注目されている。",
@@ -465,7 +462,6 @@
     "date": "2026-03-25",
     "title": "Screened City Culture",
     "categories": ["ART", "EVENTS"],
-    "thumbnail": "images/screened-city-culture.jpg",
     "intro": "都市空間の中でアートが壁からスクリーンへと拡張し、街そのものが展示面になっている。",
     "body": [
       "現代の都市型アートイベントでは、壁画だけでなく大型スクリーンやデジタル表示面も作品の一部になっている。",
@@ -484,7 +480,6 @@
     "date": "2026-03-25",
     "title": "Underground Film Circuits",
     "categories": ["FILM"],
-    "thumbnail": "images/underground-film-circuits.jpg",
     "intro": "主流から少し外れた上映や実験的な映像の場が、今も静かに熱を持ち続けている。",
     "body": [
       "映画は劇場公開だけで完結しない。フェス、ポップアップ上映、コミュニティスペースが独自の回路をつくっている。",
@@ -503,7 +498,6 @@
     "date": "2026-03-24",
     "title": "Raw Sound, Local Scenes",
     "categories": ["MUSIC", "EVENTS"],
-    "thumbnail": "images/raw-sound-local-scenes.jpg",
     "intro": "ローカルな熱量を持つ音が、そのまま現場の空気をつくっている。",
     "body": [
       "ジャンルより先に、場所の空気やコミュニティの濃度が音を規定している。",
