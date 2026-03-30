@@ -248,3 +248,93 @@
     ]
   }
 ]
+[
+  {
+    "id": "2026-03-29-wtaps-military-rework",
+    "date": "2026-03-29",
+    "category": "FASHION",
+    "title": "WTAPS × 米軍ヴィンテージ再構築ライン始動",
+    "summary": "WTAPSが新シーズンで、実物ミリタリーを再構築したカプセルをドロップ。単なるレプリカではなく、サイズバランスと素材を現代仕様に調整。東京ストリートの“ミリタリー回帰”がよりリアル志向へ。",
+    "source": "Hypebeast Japan",
+    "url": "https://hypebeast.com/jp/2026/3/wtaps-military-rework-collection",
+    "thumbnail": "images/wtaps-military-rework.jpg",
+    "featured": true
+  },
+  {
+    "id": "2026-03-29-jpegmafia-secret-tokyo-show",
+    "date": "2026-03-29",
+    "category": "MUSIC",
+    "title": "JPEGMAFIA、極秘来日ライブの噂（東京）",
+    "summary": "JPEGMAFIAがアジアツアーの一環で東京シークレットライブを計画中との情報。会場は中規模ライブハウス級で、告知は直前の可能性。オルタナラップの“地下回帰”が日本でも加速。",
+    "source": "Live circuit leaks",
+    "url": "https://undergroundliveasia.com/jpegmafia-tokyo-secret-show-2026",
+    "thumbnail": "images/jpegmafia-secret-show.jpg",
+    "featured": false
+  },
+  {
+    "id": "2026-03-29-harajuku-zine-collab",
+    "date": "2026-03-29",
+    "category": "ART",
+    "title": "原宿ZINEショップ、海外アーティストとの共同制作増加",
+    "summary": "原宿のZINEショップがベルリンやロンドンの作家と共同制作を開始。印刷はリソグラフ中心で、デジタルじゃない“物質感”が評価されている。東京がZINEのハブになりつつある。",
+    "source": "Independent publishing network",
+    "url": "https://risoprintculture.net/tokyo-zine-collab-2026",
+    "thumbnail": "images/harajuku-zine-collab.jpg",
+    "featured": false
+  },
+  {
+    "id": "2026-03-29-supreme-art-capsule",
+    "date": "2026-03-29",
+    "category": "FASHION",
+    "title": "Supreme、アート寄りカプセルで方向転換",
+    "summary": "Supremeが今週ドロップで、グラフィック中心ではなく“現代アート寄り”のラインを展開。プリントより素材と構造重視。ストリートブランドのラグジュアリー化がさらに進行。",
+    "source": "Supreme community / drops",
+    "url": "https://supremecommunity.com/season/spring-summer2026/droplist/2026-03-30",
+    "thumbnail": "images/supreme-art-capsule.jpg",
+    "featured": false
+  },
+  {
+    "id": "2026-03-29-nagoya-diy-skate-spot",
+    "date": "2026-03-29",
+    "category": "SKATE",
+    "title": "名古屋スケートクルー、DIYスポット開発が話題",
+    "summary": "名古屋のローカルクルーが廃スペースを改造し、新しいスケートスポットを制作。許可を取らず“作ってから存在させる”スタイルで、90年代的DIY精神が復活。",
+    "source": "Skate forums Japan",
+    "url": "https://japanskateforum.com/nagoya-diy-spot-2026",
+    "thumbnail": "images/nagoya-diy-skate-spot.jpg",
+    "featured": false
+  },
+  {
+    "id": "2026-03-29-asics-artist-collab",
+    "date": "2026-03-29",
+    "category": "SNEAKERS",
+    "title": "ASICS、アート系コラボスニーカー準備中",
+    "summary": "ASICSが現代アーティストとのコラボモデルを準備。ランニングシューズベースに、抽象グラフィックを最小限で配置。機能×アートの融合が日本ブランドから再定義されている。",
+    "source": "Sneaker leaks Japan",
+    "url": "https://sneakerleaks.jp/asics-artist-collab-2026",
+    "thumbnail": "images/asics-artist-collab.jpg",
+    "featured": false
+  },
+  {
+    "id": "2026-03-29-shibuya-sticker-culture",
+    "date": "2026-03-29",
+    "category": "ART",
+    "title": "渋谷グラフィティ、ステッカー文化が再拡張",
+    "summary": "タグだけでなく、ステッカー（スラップ）文化が再び増加。サイズ大型化＋レイヤー貼りが特徴で、“剥がされても残る”戦略的スタイルに進化。",
+    "source": "Graffiti community Tokyo",
+    "url": "https://tokyograff.net/sticker-culture-resurgence-2026",
+    "thumbnail": "images/shibuya-sticker-culture.jpg",
+    "featured": false
+  },
+  {
+    "id": "2026-03-29-boiler-room-kansai",
+    "date": "2026-03-29",
+    "category": "MUSIC",
+    "title": "Boiler Room系イベント、関西でも波及",
+    "summary": "東京だけでなく大阪・京都でもBoiler Room系の“360度フロア”イベントが増加。DJと観客の境界を消すスタイルが地方シーンに浸透。",
+    "source": "Resident Advisor community",
+    "url": "https://ra.co/news/boiler-room-style-events-japan-2026",
+    "thumbnail": "images/boiler-room-kansai.jpg",
+    "featured": false
+  }
+]
